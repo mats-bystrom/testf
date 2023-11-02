@@ -8,13 +8,17 @@ on:
 jobs:
   run_test:
     runs-on: ubuntu-latest
+    env:
+      dns_name: "skf.com"
+      dns_resolver: "8.8.8.8"
+      dns_resolver_name: "Google"
     steps:
       - uses: actions/checkout@v3
       - name: Try to resolve DNS name google.com
         run: |
-          nslookup somestrangedomainname.rkyssa
-          dig somestrangedomainname.rkyssa
+          nslookup $dns_name
+          dig $dns_name
       - name: Send alert if an error occurred
         if: failure()
         run: |
-          curl -X POST https://hooks.slack.com/triggers/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 -H "Content-Type: application/json; charset=utf-8" -d '{"dns_name":"www.dn.se","dns_resolver":"8.8.8.8 (Google)"}'
+          curl -X POST https://hooks.slack.com/triggers/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 -H "Content-Type: application/json; charset=utf-8" -d '{"dns_name":"$dns_name","dns_resolver":"$dns_resolver"}'
