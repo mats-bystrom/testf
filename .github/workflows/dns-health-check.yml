@@ -17,6 +17,4 @@ jobs:
       - name: Send alert if an error occurred
         if: failure()
         run: |
-          curl -X POST https://hooks.slack.com/triggers/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 
-               -H "Content-Type: application/json"
-               -d '{"dns_name": "www.dn.se", "dns_resolver": "8.8.8.8 (Google)"}'
+          curl -X POST https://hooks.slack.com/triggers/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 -H "Content-Type: application/json; charset=utf-8" -d '{"dns_name":"www.dn.se","dns_resolver":"8.8.8.8 (Google)"}'
