@@ -9,7 +9,7 @@ jobs:
   run_test:
     runs-on: ubuntu-latest
     env:
-      dns_name: "skf.com"
+      dns_name: "skf.coewwerwerm"
       dns_resolver: "8.8.8.8"
       dns_resolver_name: "Google"
     steps:
