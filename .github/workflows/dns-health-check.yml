@@ -12,4 +12,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Try to resolve DNS name google.com
         run: |
-          dig google.com
+          dig somestrangedomainname.rkyssa
+      - name: Send alert if an error occurred
+        if: failure()
+        run: |
+          curl -X POST https://hooks.slack.com/triggers/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 
+               -H "Content-Type: application/json"
+               -d '{"dns_name": "www.dn.se", "name": "Example text"}'
