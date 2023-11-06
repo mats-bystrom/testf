@@ -23,4 +23,4 @@ jobs:
         run: >
           curl -X POST https://hooks.slack.com/triggers/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
           -H "Content-Type: application/json; charset=utf-8"
-          -d '{"dns_name":"${{dns_name}}","dns_resolver":"$dns_resolver","dns_resolver_name":"$dns_resolver_name"}'
+          -d '{"dns_name":"${dns_name}","dns_resolver":"$dns_resolver","dns_resolver_name":"$dns_resolver_name"}'
