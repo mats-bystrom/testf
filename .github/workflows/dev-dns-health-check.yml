@@ -1,4 +1,4 @@
-name: DNS health check
+name: Dev DNS health check
 
 on:
   workflow_dispatch:
