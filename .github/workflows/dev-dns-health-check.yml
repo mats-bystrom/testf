@@ -7,7 +7,6 @@ on:
 
 jobs:
   run_test:
-    name: Some more fancy name
     runs-on: ubuntu-latest
     env:
       dns_name: "skf.coewwerwerm"
