@@ -1,4 +1,4 @@
-name: Dev - DNS health check
+name: DNS health check
 
 on:
   workflow_dispatch:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   run_test:
+    name: Some more fancy name
     runs-on: ubuntu-latest
     env:
       dns_name: "skf.coewwerwerm"
