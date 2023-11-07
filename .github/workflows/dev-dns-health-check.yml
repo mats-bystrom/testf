@@ -22,6 +22,11 @@ jobs:
       - name: Send alert if an error occurred
         if: failure()
         run: >
-          curl -X POST https://hooks.slack.com/triggers/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
+          curl -X ${{ secrets.ALERTS_DNS_HEALTH_CHECK_CRITICAL_SLACK_WEBHOOK }}
           -H "Content-Type: application/json; charset=utf-8"
-          -d '{"dns_name":"${{ env.dns_name }}","dns_resolver":"${{ env.dns_resolver }}","dns_resolver_name":"${{ env.dns_resolver_name }}"}'
+          -d '{
+            "dns_name":"${{ env.dns_name }}",
+            "dns_resolver":"${{ env.dns_resolver }}",
+            "dns_resolver_name":"${{ env.dns_resolver_name }}",
+            "some_github_var":"${{ github.repositoryUrl }}"
+          }'
